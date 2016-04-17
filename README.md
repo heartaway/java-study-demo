@@ -1,4 +1,3 @@
-android-study-demo
+java-study-demo
 ==================
-
-学习Android中的各种控件的使用
+Java 基础知识练习与测试
