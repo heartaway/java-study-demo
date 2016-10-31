@@ -56,7 +56,6 @@ public class FileTest {
         final FileChannel fc = new FileOutputStream("/Users/xinyuan/tmp/file.txt").getChannel();
         final FileChannel fc4Read = new FileInputStream("/Users/xinyuan/tmp/file.txt").getChannel();
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 try {
                     FileLock fileLock = fc.tryLock();
@@ -66,7 +65,6 @@ public class FileTest {
 
                     TimeUnit.SECONDS.sleep(10);
                     fileLock.release();
-                    fileLock.close();
                 } catch (Exception e) {
                     System.out.println(e);
                 } finally {
@@ -80,7 +78,6 @@ public class FileTest {
         }).start();
 
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 try {
                     FileLock fileLock = fc.tryLock();
@@ -97,7 +94,6 @@ public class FileTest {
         }).start();
 
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 try {
                     ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024);

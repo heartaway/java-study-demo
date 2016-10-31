@@ -32,13 +32,11 @@ public class ChildReentrancyLock extends ReentrancyLock {
         // 因为 “重进入的实现是通过为每个锁关联一个请求计数和一个占有它的线程” 。
         Executor executor = Executors.newFixedThreadPool(10);
         Runnable task1 = new Runnable() {
-            @Override
             public void run() {
                 childReentrancyLock.invoke("任务1");
             }
         };
         Runnable task2 = new Runnable() {
-            @Override
             public void run() {
                 childReentrancyLock.invoke("任务2");
             }
