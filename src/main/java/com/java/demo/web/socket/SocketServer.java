@@ -12,11 +12,11 @@ import java.net.Socket;
  */
 public class SocketServer {
 
-    //¼àÌıµÄ¶Ë¿ÚºÅ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶Ë¿Úºï¿½
     public static final int PORT = 12345;
 
     public static void main(String[] args) {
-        System.out.println("·şÎñÆ÷Æô¶¯...\n");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...\n");
         SocketServer server = new SocketServer();
         server.init();
     }
@@ -25,14 +25,14 @@ public class SocketServer {
         try {
             ServerSocket serverSocket = new ServerSocket(PORT);
             while (true) {
-                // Ò»µ©ÓĞ¶ÂÈû, Ôò±íÊ¾·şÎñÆ÷Óë¿Í»§¶Ë»ñµÃÁËÁ¬½Ó
+                // Ò»ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 Socket client = serverSocket.accept();
-                System.out.println("ÊÕµ½¿Í»§¶ËÇëÇó");
-                // ´¦ÀíÕâ´ÎÁ¬½Ó
+                System.out.println("ï¿½Õµï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 new HandlerThread(client);
             }
         } catch (Exception e) {
-            System.out.println("·şÎñÆ÷Òì³£: " + e.getMessage());
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£: " + e.getMessage());
         }
     }
 
@@ -46,30 +46,22 @@ public class SocketServer {
 
         public void run() {
             try {
-                // ¶ÁÈ¡¿Í»§¶ËÊı¾İ
                 DataInputStream input = new DataInputStream(socket.getInputStream());
-                String clientInputStr = input.readUTF();//ÕâÀïÒª×¢ÒâºÍ¿Í»§¶ËÊä³öÁ÷µÄĞ´·½·¨¶ÔÓ¦,·ñÔò»áÅ× EOFException
-                // ´¦Àí¿Í»§¶ËÊı¾İ
-                System.out.println("¿Í»§¶Ë·¢¹ıÀ´µÄÄÚÈİ:" + clientInputStr);
+                String clientInputStr = input.readUTF();
 
-                // Ïò¿Í»§¶Ë»Ø¸´ĞÅÏ¢
                 DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-                System.out.print("ÇëÊäÈë:\t");
-                // ·¢ËÍ¼üÅÌÊäÈëµÄÒ»ĞĞ
                 String s = new BufferedReader(new InputStreamReader(System.in)).readLine();
                 out.writeUTF(s);
 
                 out.close();
                 input.close();
             } catch (Exception e) {
-                System.out.println("·şÎñÆ÷ run Òì³£: " + e.getMessage());
             } finally {
                 if (socket != null) {
                     try {
                         socket.close();
                     } catch (Exception e) {
                         socket = null;
-                        System.out.println("·şÎñ¶Ë finally Òì³£:" + e.getMessage());
                     }
                 }
             }
