@@ -14,7 +14,7 @@ public class OrderingTest {
         Ordering<String> byLengthOrdering = new Ordering<String>() {
             @Override
             public int compare(String left, String right) {
-                return 0;
+                return left.compareTo(right);
             }
         };
 
