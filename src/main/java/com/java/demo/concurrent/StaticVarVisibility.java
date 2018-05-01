@@ -16,7 +16,6 @@ public class StaticVarVisibility {
 
     public static void main(String[] args) {
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 int i = 0;
                 //JVM优化导致，当频繁使用主存变量的时候只做use，并未做read-load-use
@@ -40,7 +39,6 @@ public class StaticVarVisibility {
         }
 
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 shareVar = false;  //设置shareVar为false，使上面的线程结束while循环
             }

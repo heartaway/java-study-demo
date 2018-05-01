@@ -59,32 +59,27 @@ public class SynchronizedMoreMethod {
         final SynchronizedMoreMethod synchronizedMoreMethod = new SynchronizedMoreMethod();
         Executor executor = Executors.newFixedThreadPool(10);
         Runnable task1 = new Runnable() {
-            @Override
             public void run() {
                 synchronizedMoreMethod.method1();
             }
         };
         Runnable task2 = new Runnable() {
-            @Override
             public void run() {
                 synchronizedMoreMethod.method2();
             }
         };
         Runnable task3 = new Runnable() {
-            @Override
             public void run() {
                 synchronizedMoreMethod.method3();
             }
         };
         Runnable task4 = new Runnable() {
-            @Override
             public void run() {
                 synchronizedMoreMethod.method4();
             }
         };
 
         Runnable task5 = new Runnable() {
-            @Override
             public void run() {
                 synchronizedMoreMethod.method5();
             }

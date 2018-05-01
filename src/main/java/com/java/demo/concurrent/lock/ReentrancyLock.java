@@ -1,4 +1,4 @@
-package com.java.demo.concurrent;
+package com.java.demo.concurrent.lock;
 
 /**
  * <p></p>
@@ -14,7 +14,7 @@ public class ReentrancyLock {
         } catch (Exception e) {
 
         }
-        System.out.println(key+"调用父类的invoke方法");
+        System.out.println(key + "调用父类的invoke方法");
     }
 
 }

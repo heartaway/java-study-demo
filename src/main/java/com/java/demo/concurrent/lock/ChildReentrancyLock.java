@@ -1,4 +1,4 @@
-package com.java.demo.concurrent;
+package com.java.demo.concurrent.lock;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -24,6 +24,7 @@ public class ChildReentrancyLock extends ReentrancyLock {
         System.out.println(key + "调用子类的invoke方法");
         super.invoke(key);
     }
+
     public static void main(String[] args) {
         //测试1：验证锁的重入性，synchronized 具有重入锁；
         final ChildReentrancyLock childReentrancyLock = new ChildReentrancyLock();
@@ -32,13 +33,11 @@ public class ChildReentrancyLock extends ReentrancyLock {
         // 因为 “重进入的实现是通过为每个锁关联一个请求计数和一个占有它的线程” 。
         Executor executor = Executors.newFixedThreadPool(10);
         Runnable task1 = new Runnable() {
-            @Override
             public void run() {
                 childReentrancyLock.invoke("任务1");
             }
         };
         Runnable task2 = new Runnable() {
-            @Override
             public void run() {
                 childReentrancyLock.invoke("任务2");
             }
