@@ -1,4 +1,4 @@
-package com.java.demo.concurrent;
+package com.java.demo.concurrent.lock;
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -36,9 +36,8 @@ public class ReentrancySpinLock {
             }
         }
         owner.compareAndSet(current, null);
-        System.out.println("释放锁"+count);
+        System.out.println("释放锁" + count);
     }
-
 
     public static void main(String[] args) {
         ReentrancySpinLock spinLock = new ReentrancySpinLock();

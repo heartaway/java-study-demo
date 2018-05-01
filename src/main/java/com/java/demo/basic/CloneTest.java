@@ -61,7 +61,6 @@ public class CloneTest {
 
     }
 
-
     static class Car implements Serializable {
         private static final long serialVersionUID = -5713945027627603702L;
 
@@ -113,7 +112,7 @@ public class CloneTest {
 
         ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bin);
-        return (T) ois.readObject();
+        return (T)ois.readObject();
     }
 
     public static void main(String[] args) {

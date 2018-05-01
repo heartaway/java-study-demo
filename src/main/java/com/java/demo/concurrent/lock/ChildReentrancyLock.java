@@ -1,4 +1,4 @@
-package com.java.demo.concurrent;
+package com.java.demo.concurrent.lock;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -24,6 +24,7 @@ public class ChildReentrancyLock extends ReentrancyLock {
         System.out.println(key + "调用子类的invoke方法");
         super.invoke(key);
     }
+
     public static void main(String[] args) {
         //测试1：验证锁的重入性，synchronized 具有重入锁；
         final ChildReentrancyLock childReentrancyLock = new ChildReentrancyLock();

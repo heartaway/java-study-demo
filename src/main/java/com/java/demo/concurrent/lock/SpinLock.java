@@ -1,4 +1,4 @@
-package com.java.demo.concurrent;
+package com.java.demo.concurrent.lock;
 
 import java.util.concurrent.atomic.AtomicReference;
 
