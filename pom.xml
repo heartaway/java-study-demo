@@ -26,6 +26,12 @@
             <artifactId>testng</artifactId>
             <version>6.8.8</version>
         </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+
     </dependencies>
 
 </project>
